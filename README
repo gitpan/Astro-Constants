@@ -1,0 +1,104 @@
+Astro::Constants version 0.07
+-----------------------------
+
+This module provides a large number of physical constants which are
+useful to Astronomers. The module itself is essentially a wrapper
+around the astroconst package of Jeremy Balin, whose home page is
+currently http://clavelina.as.arizona.edu/astroconst/
+
+The module allows you to write code like
+
+  use Astro::Constants::CGS qw(:long);
+  print "The Schwarzschild radius of the sun is ",
+        2 * GRAVITATIONAL * MASS_SOLAR / LIGHT_SPEED ** 2,
+        " centimetres\n";
+
+or
+
+  use Astro::Constants::MKS qw(:short);
+  print "The Schwarzschild radius of the sun is ",
+        2 * $A_G * $A_msun / $A_c ** 2,
+        " metres\n";
+
+It also provides some subroutines to access the list of constants
+available, a description of those constants, the precision associated
+with a constant and print out numbers in a easier to read form.
+
+Why not just use astroconst directly?
+-------------------------------------
+
+A good question. This module is not required to use the astroconst
+package, but it does provide a more structured, "perlish", interface
+to the data from the astroconst package.
+
+Requirements
+------------
+
+Version 5.6.0 or later of perl.
+
+Although not needed by this module, the L<PDL|PDL> package 
+(http://pdl.perl.org/) is strongly suggested if you are interested 
+in doing any serious numerical computation in perl.
+
+The astroconst package is *not* required, since this module contains
+all the necessary information from the 
+
+
+Files
+-----
+
+README		- this file
+astroconst.dat	- the original data file from Jeremy
+build.PL	- during the make, it parses the 2 input files
+		  and writes the CGS and MKS modules
+convert.pl	- a little script for J and I to play with.  it
+		  converts astroconst.dat to factory.dat 
+		  (new format)
+factory.dat	- new format for the data file including
+		  short name, long name, description, CGS value
+		  MKS value and precision
+
+everything else is already listed in the MANIFEST file
+
+Installation
+------------
+
+The module follows the standard perl module installation method,
+namely:
+
+	perl Makefile.pl
+	make
+	make test
+	make install
+
+If you want to add in your own constants or override the factory defaults,
+run make, edit the site_const.dat file and then run make again.  If you have
+a pre-existing site_const.dat file, drop it in place before running make.
+
+The Future
+----------
+
+The file astroconst.dat is the officially sanctioned constants from 
+Jeremy.  Site specific constants go in the site_const.dat file.  Edit
+this file before you run make.  If you have an existing site_const.dat
+file, it will NOT be overwritten.
+
+We are hoping to move to an XML format for the constants.  This could lead
+to a dependancy on XML::Parser for generating site-specific constants.
+
+Slashdot commentary on the new XML Schema 1.1 spec is at
+http://developers.slashdot.org/developers/03/01/23/228230.shtml?tid=95&tid=156
+
+Author & Copyright
+------------------
+
+Boyd Duffee, perl@cs.keele.ac.uk
+
+Copyright 2003, Boyd Duffee
+
+astroconst.dat belongs to Jeremy Bailin
+
+All rights reserved.  There is no warranty.
+This program is free software; you can redistribute
+it and/or modify it under the same terms as Perl itself.
+(Debian users may assume the use of the Artistic Licence)

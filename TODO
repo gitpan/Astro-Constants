@@ -1,0 +1,14 @@
+TODO list
+---------
+
+version 0.10
+14/2/2003
+	- Do I want to start using IO::File for my filehandles?
+
+version 0.07 
+4/2/2003 
+	X move the test suite to Test::Simple (or Test::More)
+	- change the data file names to something serious
+	X write test for list_constants()
+	X complete documentation (done 14/2/03)
+	- get "use Astro::Constants" to work

@@ -1,0 +1,47 @@
+Revision history for Perl extension Astro::Constants.
+
+0.09  ?? Feb 2003
+	- finished off documentation
+	- moved test.pl to Test::Simple
+	- added in tests on list_constants()
+
+0.08  13 Feb 2003
+	- minor changes to astroconst.dat and convert.pl
+	- changed Makefile.PL to supress manifying CGS.pm and MKS.pm
+	- build.PL handles pre and post perl version 5.6.0 
+		we only require perl 5.004 now
+
+0.07  11 Feb 2003
+	- changed Astro::Constants to "use Astro::Constants::CGS qw( :long )
+		from require (wasn't importing the LIST)
+	- Dougs additions that I've included:
+	  - documentation 
+	  - README (wasn't previously included in dist) mostly from Doug
+	  - Makefile.PL	- explicitly dies if perl version less than 5.6.0
+		- fixed up PL_FILES
+		- added a clean option to remove CGS.pm and MKS.pm
+		- removes the need to run "make build" before make
+	  - build.PL - runs under "use strict"
+		- requires perl 5.6.0
+		- his uses IO::File, maybe I'll do that next version
+
+	- strict found the bug in the dimless constant generation - fixed
+
+0.06  4 Feb 2003
+	- haven't tested list_constants, everything else works fine
+	- we have long constants, short variables, and the functions
+		list_constants, describe_constants, precision and pretty
+	- Astro::Constants consists of documentation.
+	- Astro::Constants::CGS and Astro::Constants::MKS have the code
+
+0.05  28 Jan 2003
+	- first pre-alpha that didn't have too many build issues
+		- doesn't test functions, constants only
+
+0.02 - 0.04  Jan 2003
+	- never released
+
+0.01  Tue Jan  7 15:37:26 2003
+	- original version; created by h2xs 1.20 with options
+		-XA -n Astro::Constants
+
